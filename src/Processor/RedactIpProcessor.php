@@ -5,11 +5,11 @@ namespace Egeniq\Monolog\Gdpr\Processor;
 class RedactIpProcessor extends AbstractProcessor
 {
     /**
-     * @param array $record
+     * @param array|\Monolog\LogRecord $record
      *
-     * @return array
+     * @return array|\Monolog\LogRecord
      */
-    public function __invoke(array $record): array
+    public function __invoke($record)
     {
         // serialise to a JSON string so we can scan the entire tree
         $serialised = json_encode($record);
